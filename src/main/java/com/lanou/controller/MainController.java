@@ -18,6 +18,7 @@ public class MainController {
     }
 
     // 定位到登录页
+    // 定位到登录页
     @RequestMapping(value = "/login")
     public String loginPage(){
         if (SecurityUtils.getSubject().isAuthenticated()){
@@ -30,9 +31,9 @@ public class MainController {
     @RequestMapping(value = "/loginsubmit")
     public String loginsubmit(HttpServletRequest request) throws Exception {
 
+
         // 如果在shirospring的配置文件中, 配置了表单认证过滤器
         // 那么在这个方法中只需要处理异常信息即可
-
         String exClassName =
                 (String) request.getAttribute("shiroLoginFailure");
 
@@ -45,11 +46,10 @@ public class MainController {
         }
     }
 
+
     @RequiresRoles("student")
     @RequestMapping(value = "/test")
     public String testm(){
-
-
         return "test";
     }
 }
